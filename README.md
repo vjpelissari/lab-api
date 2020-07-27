@@ -14,7 +14,7 @@ As seguintes funcionalidades foram desenvolvidas:
 - Remover logicamente um exame ativo;
 - Associar um exame ativo à um laboratório ativo;
 - Desassociar um exame ativo de um laboratório ativo;
-- endpoint que faz a busca por nome do exame e retorna todos os laboratorios associados a esse exame;
+- Endpoint que faz a busca por nome do exame e retorna todos os laboratorios associados a esse exame;
 - Publicação do ambiente na Amazon AWS;
 - Documentação da API;
 
