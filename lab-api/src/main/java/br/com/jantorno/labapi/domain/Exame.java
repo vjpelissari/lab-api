@@ -10,11 +10,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
-import javax.persistence.UniqueConstraint;
+//import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -47,13 +47,14 @@ public class Exame {
 	@Enumerated(EnumType.ORDINAL)
 	private Status status = Status.ATIVO;
 	
-	@ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable (
-			uniqueConstraints = @UniqueConstraint(columnNames = {"id_laboratorio", "id_exame"}),
-			name = "LabsExames",
-			joinColumns = @JoinColumn(name="id_exame"),
-			inverseJoinColumns = @JoinColumn(name="id_laboratorio")
-	)
+//	@ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinTable (
+//			uniqueConstraints = @UniqueConstraint(columnNames = {"id_laboratorio", "id_exame"}),
+//			name = "LabsExames",
+//			joinColumns = @JoinColumn(name="id_exame"),
+//			inverseJoinColumns = @JoinColumn(name="id_laboratorio")
+//	)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "exames")
 	@JsonIgnore
 	private List<Laboratorio> laboratorios;
 	
