@@ -20,8 +20,11 @@ As seguintes funcionalidades foram desenvolvidas:
 
 # Tecnologias e frameworks utilizados
 
+- Java 8
+  Versão do Java utilizado
+  
 - Sprint Boot:
-  Desenvolvimento da Aplicação
+  Desenvolvimento da API
 
 - Maven:
   Gerenciador de Pacotes
