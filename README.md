@@ -59,7 +59,7 @@ As seguintes funcionalidades foram desenvolvidas:
   contem uma classe handler para lidar com exeptions.
 
 - br.com.jantorno.labapi.repository:
-  pacote que contem o padrão Repository para realizar a persistencia com o banco de dados.
+  pacote que contem o padrão Repository para realizar operações com o banco de dados.
 
 - br.com.jantorno.labapi.resources:
   contem os controllers da aplicação, responsaveis pelo mapeamento dos recursos da API.
@@ -95,30 +95,44 @@ As seguintes funcionalidades foram desenvolvidas:
     "endereco" : "Rua Professor Aquino Brandão, 547, São Paulo, SP"
   }
 
-- POST - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/laboratorios
+- POST - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/exames
   Inclui um exame:
   
+  {
+    "nome" : "Exame de Sangue Simples",
+    "tipoExame" : 0
+  }
+
+- PUT - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/laboratorios/1
+  Atualiza o laboratorio de código 1:
+
+  {
+    "nome" : "Previlab",
+    "endereco" : "Rua Professor Aquino Brandão, 547, São Paulo, SP"
+  }
+
+- PUT - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/exames/1
+  Atualiza o exame de código 1:
+
+  {
+    "nome" : "Exame de Sangue Simples",
+    "tipoExame" : 0
+  }
+
+- DELETE - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/laboratorios/1
+  Exclui logicamente o laboratorio de código 1.
+
+- DELETE - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/exames/1
+  Exclui logicamente o exame de código 1.
+    
+- POST - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/associacao
+  Associa um laboratorio a um exame (1 - Associa; 0 - Desassocia):
   
+  {
+    "idLaboratorio" : 1,
+    "idExame" : 1,
+    "tipo" : 1
+  }
   
-
-
-- PUT - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/clientes/1
-  Atualiza o cliente de código 1.
-
-- DELETE - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/cliente/1
-  Exclui o cliente de código 1
-  
-- POST - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/1/pets
-  Inclui um pet para o cliente de codigo 1
-
-- GET - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/pets
-  Retorna uma lista com informações de todos os pets
-
-- GET - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/pets/1
-  Retorna informações do pet de código 1
-
-- PUT - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/pets/1
-  Atualiza o cliente de código 1.
-
-- DELETE - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/pets/1
-  Exclui o pet de código 1
+- GET - http://ec2-52-15-239-159.us-east-2.compute.amazonaws.com:8080/buscarlaboratorios?nome=Exame de Sangue Simples
+  Retorna uma lista com todos os laboratorios associados com o exame de nome "Exame de Sangue Simples".
